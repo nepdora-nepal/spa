@@ -20,10 +20,13 @@
 - URL-driven filters: some hooks (e.g., `useProductFilters` in `use-product.ts`) read `useSearchParams()` and update router state via `next/navigation` — prefer this pattern for paginated/filterable lists.
 
 **Conventions & small rules**
-- Prefer putting types in `src/types/*` and import with `@/...` aliases.
-- Form validation uses Zod files in `src/schemas/` — reuse and `z.infer` when possible.
-- UI components are presentational; business logic belongs in hooks or `src/services/`.
-- Use `sonner` for toast notifications when signaling success/failure in hooks (existing pattern in `use-product.ts`).
+- **Icons:** ALWAYS use `lucide-react` only. Do not use other icon libraries unless explicitly requested.
+- **UI Components:** ALWAYS prioritize existing Shadcn components from `src/components/ui/`. If a primitive is missing, check the reference below before building from scratch.
+- **Styling:** Use TailwindCSS exclusively. Follow the existing design system (colors, spacing).
+- **Types:** Prefer putting types in `src/types/*` and import with `@/...` aliases.
+- **Form validation:** Use Zod files in `src/schemas/` — reuse and `z.infer` when possible.
+- **Logic placement:** UI components are presentational; business logic belongs in hooks or `src/services/`.
+- **Feedback:** Use `sonner` for toast notifications when signaling success/failure in hooks (existing pattern in `use-product.ts`).
 
 **Build / dev / lint commands**
 - The repo uses Node + `pnpm` (there is a `pnpm-lock.yaml`). Recommended local workflow:
